@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <title>SaulJM-Portafolio</title>
+  </head>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Open Sans", sans-serif;
+    }
+
+    body {
+      height: 100vh;
+    }
+    /* 
+estilo de la lista del navbar */
+    li {
+      list-style: none;
+    }
+    a {
+      text-decoration: none;
+      color: rgb(0, 0, 0);
+      font-size: 1rem;
+    }
+    a:hover {
+      color: orange;
+    }
+    /* HEADER */
+
+    header {
+      position: relative;
+      padding: 0 2rem;
+      background-color: #ffffff;
+    }
+
+    .navbar {
+      width: 100%;
+      height: 60px;
+      max-width: 1200px;
+      margin: 0 auto;
+      align-items: center;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .navbar .logo a {
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+
+    .navbar .links {
+      display: flex;
+      gap: 2rem;
+    }
+
+    .navbar .toggle_btn {
+      color: #000000;
+      font-size: 1.5rem;
+      cursor: pointer;
+      display: none;
+    }
+
+    .action_btn {
+      background-color: #ffa500;
+      color: #fff;
+      padding: 0.5rem 1rem;
+      border: none;
+      outline: none;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: scale 0.2 ease;
+    }
+
+    .action_btn:hover {
+      scale: 1.05;
+      color: #fff;
+    }
+
+    .action_btn:active {
+      scale: 0.95;
+    }
+    /* DROPDOWN MENU */
+    .dropdown_menu {
+      display: none;
+      position: absolute;
+      right: 2rem;
+      top: 60px;
+      height: 0;
+      width: 300px;
+      background: rgba(255, 255, 255);
+      backdrop-filter: blur(15px);
+      border-radius: 10px;
+      overflow: hidden;
+      transition: height 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    .dropdown_menu.open {
+      height: 240px;
+    }
+
+    .dropdown_menu li {
+      padding: 0.7rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .dropdown_menu .action_btn {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+    }
+
+    /* HERO */
+    section#hero {
+      height: calc(100vh - 60px);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: #000000;
+      background: url("static/img/wave.svg");
+      background-repeat: no-repeat;
+      background-position: bottom;
+      
+    }
+
+    #hero h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+
+    #hero i{
+      font-size: 25px;
+      padding: 1rem;
+    }
+
+    #hero i:hover{
+      transition: scale 0.2 ease;
+      scale: 1.05;
+      cursor: pointer;
+    }
+
+
+    section#sobreMi{
+      background-color: rgb(255, 255, 255);
+      width: 100%;
+      color: rgb(0, 0, 0);
+      align-items: center;
+      padding: 1.5rem 1.5rem;
+    }
+
+    section#sobreMi h1{
+      text-align: center;
+      font-size: 3rem;
+    }
+
+    section#sobreMi p{
+      text-align: center;
+      font-size: 2rem;
+    }
+
+    .contenedor__sobremi{
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      align-items: center;
+      margin: 1rem;
+      padding: 1rem;
+    }
+
+    section#proyectos h1 {
+      text-align: center;
+    }
+
+    section#proyectos {
+      margin-top: 1.5rem;
+      background-color: #ffffff;
+background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1600 900'%3E%3Cdefs%3E%3ClinearGradient id='a' x1='0' x2='0' y1='1' y2='0'%3E%3Cstop offset='0' stop-color='%230FF'/%3E%3Cstop offset='1' stop-color='%23CF6'/%3E%3C/linearGradient%3E%3ClinearGradient id='b' x1='0' x2='0' y1='0' y2='1'%3E%3Cstop offset='0' stop-color='%23F00'/%3E%3Cstop offset='1' stop-color='%23FC0'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cg fill='%23FFF' fill-opacity='0' stroke-miterlimit='10'%3E%3Cg stroke='url(%23a)' stroke-width='2'%3E%3Cpath transform='translate(0 0)' d='M1409 581 1450.35 511 1490 581z'/%3E%3Ccircle stroke-width='4' transform='rotate(0 800 450)' cx='500' cy='100' r='40'/%3E%3Cpath transform='translate(0 0)' d='M400.86 735.5h-83.73c0-23.12 18.74-41.87 41.87-41.87S400.86 712.38 400.86 735.5z'/%3E%3C/g%3E%3Cg stroke='url(%23b)' stroke-width='4'%3E%3Cpath transform='translate(0 0)' d='M149.8 345.2 118.4 389.8 149.8 434.4 181.2 389.8z'/%3E%3Crect stroke-width='8' transform='rotate(0 1089 759)' x='1039' y='709' width='100' height='100'/%3E%3Cpath transform='rotate(0 1400 132)' d='M1426.8 132.4 1405.7 168.8 1363.7 168.8 1342.7 132.4 1363.7 96 1405.7 96z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+background-attachment: fixed;
+background-size: cover;
+    }
+
+    .listaProyectos {
+      display: flex;
+      justify-content: center;
+      flex-direction: row;
+      gap: 25px;
+      padding: 1.5rem 1.5rem;
+    }
+
+    .card {
+      background-color: rgb(219, 219, 219);
+      border-radius: 10px;
+      border: none;
+      height: 250px;
+      width: 100%;
+    }
+
+
+    .card:hover{
+      cursor: pointer;
+      box-shadow: 7px 6px 5px -1px rgba(0,0,0,0.08);
+-webkit-box-shadow: 7px 6px 5px -1px rgba(0,0,0,0.08);
+-moz-box-shadow: 7px 6px 5px -1px rgba(0,0,0,0.08);
+    }
+
+    .imagen-contenedor {
+      position: relative;
+      width: 100%;
+      height: 250px;
+    }
+
+    .imagen-contenedor img {
+      width: 100%;
+      height: 250px;
+      opacity: 0.5;
+      background-color: #000000;
+    }
+
+    .imagen-contenedor .texto {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;   
+    }
+
+    .imagen-contenedor .texto h2 {
+      margin-top: 0;
+    }
+
+    .boton-img {
+      /* background-color: orange; */
+      background-image: linear-gradient(to right, orange 0%, rgb(255, 166, 0)  51%, rgb(255, 94, 0) 100%);
+      color: #fff;
+      padding: 0.5rem 1rem;
+      border: none;
+      outline: none;
+      border-radius: 5px;
+      font-size: 0.8rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.5s;
+            background-size: 200% auto;
+    }
+
+    .boton-img:hover {
+      background-position: right center; /* change the direction of the change here */
+            color: #fff;
+            text-decoration: none;
+    }
+
+
+    /* DISEÑO RESPONSIVO */
+    @media (max-width: 992px) {
+      .navbar .links,
+      .navbar .action_btn {
+        display: none;
+      }
+
+      .navbar .toggle_btn {
+        display: block;
+      }
+
+      .dropdown_menu {
+        display: block;
+      }
+
+      .listaProyectos {
+        flex-direction: column;
+      }
+
+      .contenedor__sobremi{
+        flex-direction: column;
+      }
+    }
+
+    @media (max-width: 576px) {
+      .dropdown_menu {
+        left: 2rem;
+        width: unset;
+      }
+
+      .listaProyectos {
+        flex-direction: column;
+      }
+      .contenedor__sobremi{
+        flex-direction: column;
+      }
+    }
+  </style>
+
+  <body>
+    <header>
+      <div class="navbar">
+        <div class="logo"><a href="#">JUMS</a></div>
+        <ul class="links">
+          <li><a href="#hero">Inicio</a></li>
+          <li><a href="#sobreMi">Sobre Mi</a></li>
+          <li><a href="services">Conocimientos</a></li>
+        </ul>
+        <a href="#proyectos" class="action_btn">Proyectos</a>
+        <div class="toggle_btn">
+          <i class="fa-solid fa-bars"></i>
+        </div>
+      </div>
+
+      <!-- menu despeglable responsivo -->
+      <div class="dropdown_menu">
+        <li><a href="#hero">Inicio</a></li>
+        <li><a href="#sobreMi">Sobre Mi</a></li>
+        <li><a href="services">Conocimientos</a></li>
+        <li><a href="#proyectos" class="action_btn">Proyectos</a></li>
+      </div>
+    </header>
+
+    <main>
+      <section id="hero">
+        <h1>Saul Juarez Martinez</h1>
+        <p>Programador Web jr</p>
+        <div>
+          <a href="#"><i class="fa-brands fa-github"></i></a>  <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+        </div>
+      </section>
+
+      <section id="sobreMi">
+        <h1>Sobre mi</h1>
+        <div class="contenedor__sobremi">
+          <div>
+            <p>Hola!, soy saul, soy un programador web jr</p>
+          </div>
+          <div>
+            <img src="./static/img/undraw_Web_developer_re_h7ie.png" alt="Web Developer" width="250px" height="200px">
+          </div>
+        </div>
+      </section>
+
+      <section id="proyectos" >
+        <h1>Mis Proyectos</h1>
+
+        <div class="listaProyectos">
+          <div class="card">
+            <div class="imagen-contenedor">
+              <img src="./static/img/spectrum-gradient.png" alt="Descripción de la imagen" />
+              <div class="texto">
+                <h2>CRUD codeigniter</h2>
+                <p>Tabla haciendo uso de DataTable</p>
+                <button onclick="location.href='https://github.com/SaulJM28/solutec'"  target="_blank" class="boton-img">Codigo <i class="fa-brands fa-github"></i> </button>
+                <button onclick="location.href='http://armandoflores.xyz/solutec/home/index'"  target="_blank"  class="boton-img">Ver <i class="fas fa-eye"></i> </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="imagen-contenedor">
+              <img src="/static/img/scan-qr.jpg" alt="Descripción de la imagen" />
+              <div class="texto">
+                <h2>Escaner Qr</h2>
+                <p>Apliacion para Escaner codigios Qr</p>
+                <button class="boton-img">Botón 1</button>
+                <button class="boton-img">Botón 2</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="imagen-contenedor">
+              <img src="ruta-de-la-imagen.jpg" alt="Descripción de la imagen" />
+              <div class="texto">
+                <h2>Título del texto</h2>
+                <p>Descripción del texto</p>
+                <button class="boton-img">Botón 1</button>
+                <button class="boton-img">Botón 2</button>
+              </div>
+            </div>
+          </div>
+
+
+        </div>
+      </section>
+    </main>
+
+    <script>
+      const toggleBtn = document.querySelector(".toggle_btn");
+      const toggleBtnIcon = document.querySelector(".toggle_btn i");
+      const dropDownMenu = document.querySelector(".dropdown_menu");
+
+      toggleBtn.onclick = function () {
+        dropDownMenu.classList.toggle("open");
+        const isOpen = dropDownMenu.classList.contains("open");
+
+        toggleBtnIcon.classList = isOpen
+          ? "fa-solid fa-xmark"
+          : "fa-solid fa-bars";
+      };
+    </script>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

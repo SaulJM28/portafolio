@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <title>Tabla Dinamica</title>
+  </head>
+  <body>
+    <div class="container" style="padding: 20px">
+      <div class="row g-3">
+        <h1 style="text-align: center; margin: 1rem; padding: 5px">
+          Tabla dinamica usando DataTable
+        </h1>
+      </div>
+      <div class="row g-3">
+        <form class="row g-3">
+          <div class="col-auto">
+            <label for="nom" class="visually-hidden">Nombre</label>
+            <input
+              type="text"
+              class="form-control"
+              id="nom"
+              placeholder="Nombre"
+              required
+            />
+          </div>
+          <div class="col-auto">
+            <label for="ap1" class="visually-hidden">Primer Apellido</label>
+            <input
+              type="text"
+              class="form-control"
+              id="ap1"
+              placeholder="Primer Apellido"
+              required
+            />
+          </div>
+          <div class="col-auto">
+            <label for="ap2" class="visually-hidden">Segundo Apellido</label>
+            <input
+              type="text"
+              class="form-control"
+              id="ap2"
+              placeholder="Segundo Apellido"
+              required
+            />
+          </div>
+          <div class="col-auto">
+            <label for="edad" class="visually-hidden">Edad</label>
+            <input
+              type="text"
+              class="form-control"
+              id="edad"
+              placeholder="Edad"
+              required
+            />
+          </div>
+          <div class="col-auto">
+            <button type="submit" class="btn btn-primary mb-3">
+              Agregar <i class="fas fa-plus"></i>
+            </button>
+          </div>
+        </form>
+      </div>
+      <div class="row g-3 table-responsive">
+        <table class="table table-sm table-bordered table-hover">
+          <thead style="text-align: center">
+            <tr>
+              <th>Nombre</th>
+              <th>Primer Apellido</th>
+              <th>Segundo Apellido</th>
+              <th>Edad</th>
+              <th>Acciones</th>
+            </tr>
+          </thead>
+          <tbody style="text-align: center">
+            <tr>
+              <td>Saul</td>
+              <td>Juarez</td>
+              <td>Martinez</td>
+              <td>24</td>
+              <td>
+                <div class="btn-group" role="group" aria-label="action buttons">
+                  <button
+                    type="button"
+                    class="btn btn-warning btn-sm text-white"
+                    data-bs-toggle="modal"
+                    data-bs-target="#modalUpdate"
+                  >
+                    <i class="fas fa-edit"></i>
+                  </button>
+                  <button 
+                  type="button" 
+                  class="btn btn-danger btn-sm"
+                  data-bs-toggle="modal"
+                  data-bs-target="#modalDelete"
+                  >
+                    <i class="fas fa-trash"></i>
+                  </button>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- MODAL -->
+    <div
+      class="modal fade"
+      id="modalUpdate"
+      tabindex="-1"
+      aria-labelledby="Modal update info"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header bg-warning text-white">
+            <h1 class="modal-title fs-5">Editar Registro</h1>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <form id="formularioUpdateInfo">
+              <div class="mb-3">
+                <label for="nomUP" class="form-label"
+                  >Nombre</label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  id="nomUp"
+                  aria-describedby="nombre"
+                  placeholder="Nombre"
+                  required
+                />
+              </div>
+              <div class="mb-3">
+                <label for="ap1Up" class="form-label"
+                  >Primer Apellido</label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  id="ap1Up"
+                  aria-describedby="Primer Apellido"
+                  placeholder="Primer Apellido"
+                  required
+                />
+              </div>
+              <div class="mb-3">
+                <label for="ap2Up" class="form-label"
+                  >Segundo Apellido</label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  id="ap2Up"
+                  aria-describedby="Segundo Apellido"
+                  placeholder="Segundo Apellido"
+                  required
+                />
+              </div>
+              <div class="mb-3">
+                <label for="edadUp" class="form-label"
+                  >Edad</label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  id="edadUp"
+                  aria-describedby="Edad"
+                  placeholder="Edad"
+                  required
+                />
+              </div>
+              <div style="display: flex; justify-content:  right;">
+                  <button type="submit" class="btn btn-warning text-white">
+                      Editar <i class="fas fa-edit"></i>
+                    </button>
+                </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Cerrar
+            </button>
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- MODAL DELETE -->
+    <div
+    class="modal fade"
+    id="modalDelete"
+    tabindex="-1"
+    aria-labelledby="Modal delete info"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header bg-danger text-white">
+          <h1 class="modal-title fs-5">Eliminar Registro</h1>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="modal-body">
+
+        </div>
+        <div class="modal-footer">
+          <button
+            type="button"
+            class="btn btn-secondary"
+            data-bs-dismiss="modal"
+          >
+            Cerrar
+          </button>
+
+        </div>
+      </div>
+    </div>
+  </div>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
